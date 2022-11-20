@@ -16,9 +16,10 @@ public:
 	CNodeDynamic* pcGetChild(int iChildOffset);
 	void vPrint();
 	void vPrintAllBelow();
+	void vPrintUp();
 	//ex6
 	void vAddNewChild(CNodeDynamic* pcNewChild);
-	void vDeallocFromParent(CNodeDynamic* pcChild);
+	void vDeallocFromParent();
 private:
 	vector<CNodeDynamic*> v_children;
 	CNodeDynamic* pc_parent_node;

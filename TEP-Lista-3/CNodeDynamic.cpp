@@ -19,22 +19,23 @@ void CNodeDynamic::vAddNewChild()
 };
 
 //ex6
-void CNodeDynamic::vDeallocFromParent(CNodeDynamic* pcChild) {
-	if (pcChild->pc_parent_node!=NULL)
+void CNodeDynamic::vDeallocFromParent() {
+	if (pc_parent_node!=NULL)
 	{
-		vector<CNodeDynamic*> parentVector = pcChild->pc_parent_node->v_children;
-		for (int i = 0; i < parentVector.size(); i++)
+		vector<CNodeDynamic*>* parentVector = (&pc_parent_node->v_children);
+		for (int i = 0; i < (*parentVector).size(); i++)
 		{
-			if (parentVector.at(i) == pcChild)
+			if ((*parentVector).at(i)->i_val == i_val)
 			{
-				parentVector.erase(parentVector.begin() + i);
+				(*parentVector).erase((*parentVector).begin() + i);
 			}
 		}
+		pc_parent_node = NULL;
 	}
 };
 void CNodeDynamic::vAddNewChild(CNodeDynamic* pcChildNode)
 {
-	vDeallocFromParent(pcChildNode);
+	pcChildNode->vDeallocFromParent();
 	pcChildNode->pc_parent_node = this;
 	v_children.push_back(pcChildNode);
 };
@@ -63,4 +64,12 @@ void CNodeDynamic::vPrintAllBelow()
 	{
 		(*v_children[i]).vPrintAllBelow();
 	}
+};
+void CNodeDynamic::vPrintUp()
+{
+	if (pc_parent_node != NULL)
+	{
+		pc_parent_node->vPrintUp();
+	}
+	vPrint();
 };

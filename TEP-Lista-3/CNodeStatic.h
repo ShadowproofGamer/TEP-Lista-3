@@ -17,7 +17,7 @@ public:
 	void vPrintUp();
 	//ex6
 	void vAddNewChild(CNodeStatic* pcNewChild);
-	void vDeallocFromParent(CNodeStatic* pcChild);
+	void vDeallocFromParent();
 private:
 	vector<CNodeStatic> v_children;
 	CNodeStatic* pc_parent_node;

@@ -131,19 +131,61 @@ void v_subset_move_test()
 	c_tree22.vPrintTree();
 	cout << endl;
 
-	//testing static
+	//testing dealoc static
+	/*
+	cout << endl << "Testing pre-dealoc Static: " << endl;
+	CNodeStatic* c_Node1 = c_tree2.pcGetRoot()->pcGetChild(0)->pcGetChild(0);
+	c_Node1->vPrint();
+	c_Node1->vDeallocFromParent();
+	cout << endl << "Testing dealoc Static: " << endl;
+	c_tree2.vPrintTree();
+	cout << endl;
+	c_Node1->vPrintUp();
+	cout << endl;
+	c_Node1->vPrintAllBelow();
+	
+	//*/
+
+
+	/*
+	cout << endl << "Testing pre-dealoc Dynamic: " << endl;
+	CNodeDynamic* c_Node11 = c_tree22.pcGetRoot()->pcGetChild(0)->pcGetChild(0);
+	c_Node11->vPrint();
+	c_Node11->vDeallocFromParent();
+	cout << endl << "Testing dealoc Dynamic: " << endl;
+	c_tree22.vPrintTree();
+	cout << endl;
+	c_Node11->vPrintUp();
+	cout << endl;
+	c_Node11->vPrintAllBelow();
+	//*/
+
+	/*
+	cout << endl << "Testing vAddChildren(&) Dynamic: ";
+	c_tree11.pcGetRoot()->pcGetChild(2)->vAddNewChild(c_tree22.pcGetRoot()->pcGetChild(0));
+	cout << endl << "tree11 Dynamic: " << endl;
+	c_tree11.vPrintTree();
+	cout << endl << "tree22 Dynamic: " << endl;
+	c_tree22.vPrintTree();
+
+	//*/
+
+	//testing Static bMoveSubtree
 	/*
 	c_tree1.bMoveSubtree(c_tree1.pcGetRoot()->pcGetChild(2), c_tree2.pcGetRoot()->pcGetChild(0));
 	c_tree1.vPrintTree();
 	c_tree2.vPrintTree();
-	*/
+	//*/
 
 
-	//testing dynamic
-	/*
+	//testing Dynamic bMoveSubtree
+	///*
+	cout << "testing move subtree Dynamic:" << endl;
 	c_tree11.bMoveSubtree(c_tree11.pcGetRoot()->pcGetChild(2), c_tree22.pcGetRoot()->pcGetChild(0));
+	cout << "tree11 Dynamic:" << endl;
 	c_tree11.vPrintTree();
+	cout << endl << "tree22 Dynamic:" << endl;
 	c_tree22.vPrintTree();
-	*/
+	//*/
 
 };

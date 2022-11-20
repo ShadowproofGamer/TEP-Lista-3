@@ -14,7 +14,7 @@ CNodeDynamic* CTreeDynamic::pcGetRoot() { return(pc_root); }
 void CTreeDynamic::vPrintTree() {
 	pc_root->vPrintAllBelow();
 };
-bool bMoveSubtree(CNodeDynamic* pcParentNode, CNodeDynamic* pcNewChildNode)
+bool CTreeDynamic::bMoveSubtree(CNodeDynamic* pcParentNode, CNodeDynamic* pcNewChildNode)
 {
 	pcParentNode->vAddNewChild(pcNewChildNode);
 	return true;
