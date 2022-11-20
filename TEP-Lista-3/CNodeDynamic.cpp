@@ -67,9 +67,10 @@ void CNodeDynamic::vPrintAllBelow()
 };
 void CNodeDynamic::vPrintUp()
 {
+	vPrint();
 	if (pc_parent_node != NULL)
 	{
 		pc_parent_node->vPrintUp();
 	}
-	vPrint();
+
 };

@@ -171,16 +171,19 @@ void v_subset_move_test()
 	//*/
 
 	//testing Static bMoveSubtree
-	/*
+	///*
+	cout << endl << "testing move subtree Static:" << endl;
 	c_tree1.bMoveSubtree(c_tree1.pcGetRoot()->pcGetChild(2), c_tree2.pcGetRoot()->pcGetChild(0));
+	cout << "tree1 Static:" << endl;
 	c_tree1.vPrintTree();
+	cout << endl << "tree2 Static:" << endl;
 	c_tree2.vPrintTree();
 	//*/
 
 
 	//testing Dynamic bMoveSubtree
 	///*
-	cout << "testing move subtree Dynamic:" << endl;
+	cout << endl << "testing move subtree Dynamic:" << endl;
 	c_tree11.bMoveSubtree(c_tree11.pcGetRoot()->pcGetChild(2), c_tree22.pcGetRoot()->pcGetChild(0));
 	cout << "tree11 Dynamic:" << endl;
 	c_tree11.vPrintTree();

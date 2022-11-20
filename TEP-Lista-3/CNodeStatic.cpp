@@ -54,24 +54,25 @@ void CNodeStatic::vPrintAllBelow()
 //ex3
 void CNodeStatic::vPrintUp()
 {
+	vPrint();
 	if (pc_parent_node != NULL)
 	{
 		pc_parent_node->vPrintUp();
 	}
-	vPrint();
+	
 };
 
 //ex6
 void CNodeStatic::vDeallocFromParent() {
 	if (pc_parent_node != NULL)
 	{
-		cout << "parent not null Static" << endl;
+		//cout << "parent not null Static" << endl;
 		vector<CNodeStatic>* parentVector = (&pc_parent_node->v_children);
 		for (int i = 0; i < (*parentVector).size(); i++)
 		{
 			if ((*parentVector).at(i).i_val == i_val)
 			{
-				cout << "myself found" << endl;
+				//cout << "myself found" << endl;
 				(*parentVector).erase((*parentVector).begin() + i);
 			}
 		}
@@ -81,8 +82,11 @@ void CNodeStatic::vDeallocFromParent() {
 
 void CNodeStatic::vAddNewChild(CNodeStatic* pcChildNode)
 {
+	CNodeStatic child = (*pcChildNode);
+	child.pc_parent_node = this;
+	v_children.push_back(child);
 	pcChildNode->vDeallocFromParent();
-	pcChildNode->pc_parent_node = this;
-	v_children.push_back(*pcChildNode);
+	
+	
 };
 
