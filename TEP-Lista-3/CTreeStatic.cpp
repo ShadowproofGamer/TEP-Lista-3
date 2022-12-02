@@ -16,6 +16,7 @@ void CTreeStatic::vPrintTree()
 };
 bool CTreeStatic::bMoveSubtree(CNodeStatic* pcParentNode, CNodeStatic* pcNewChildNode)
 {
+	if (pcParentNode == NULL || pcNewChildNode == NULL) return false;
 	pcParentNode->vAddNewChild(pcNewChildNode);
 	return true;
 };
